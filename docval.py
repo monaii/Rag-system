@@ -76,7 +76,8 @@ def _load_text(abs_path: str, ftype: str):
     if ftype == "docx":
         return Docx2txtLoader(abs_path).load()[0].page_content
     if ftype == "pdf":
-        return PyPDFLoader(abs_path, mode="single").load()[0].page_content
+        docs = PyPDFLoader(abs_path).load()
+        return "\n\n".join(d.page_content for d in docs)
     if ftype == "pptx":
         slides = UnstructuredPowerPointLoader(abs_path).load()
         return "\n\n".join(d.page_content or "" for d in slides)
@@ -106,6 +107,8 @@ def ingest():
         vectordb = Chroma(collection_name=collection, embedding_function=embeddings, persist_directory=persist_dir)
         all_docs = []
         for root, _, files in os.walk(DATA_DIR):
+            if ".ipynb_checkpoints" in root:
+                continue
             for name in files:
                 if name.startswith("~$"):
                     continue
@@ -188,8 +191,18 @@ def verify(question: str, answer: str, context: str):
         ("system", "Question:\n{q}\nAnswer:\n{a}\nContext:\n{c}"),
     ])
     vchain = vprompt | llm
-    verdict = vchain.invoke({"q": question, "a": answer, "c": context}).content.strip().lower()
-    score = 1.0 if verdict == "supported" else 0.5 if verdict == "partially_supported" else 0.0
+    verdict_raw = vchain.invoke({"q": question, "a": answer, "c": context}).content.strip().lower()
+    
+    if verdict_raw.startswith("supported"):
+        verdict = "supported"
+        score = 1.0
+    elif verdict_raw.startswith("partially"):
+        verdict = "partially_supported"
+        score = 0.5
+    else:
+        verdict = "unsupported"
+        score = 0.0
+
     return {"verdict": verdict, "confidence": score}
 
 
