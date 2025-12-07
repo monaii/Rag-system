@@ -1,27 +1,17 @@
 python-dotenv
 flask
-
-# LangChain ecosystem
 langchain
+langchain-community
 langchain-core
 langchain-openai
 langchain-chroma
-langchain-community
 langchain-mistralai
 langchain-pinecone
-langchain-ollama  
-
-# Vector stores
+langchain-ollama
 chromadb
 faiss-cpu
 pinecone-client
-
-# Evaluation + datasets
-ragas
-datasets
-evaluate
-
-# LlamaIndex (optional)
-llama-index
-llama-index-vector-stores-chroma
-llama-index-embeddings-openai
+pypdf
+docx2txt
+unstructured
+python-pptx
