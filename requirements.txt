@@ -1,6 +1,5 @@
 python-dotenv
 flask
-streamlit
 
 # LangChain ecosystem
 langchain

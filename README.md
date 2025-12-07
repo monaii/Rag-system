@@ -1,6 +1,6 @@
 # RAG Document Validator Framework
 
-A specialized AI framework for the automatic search, validation, and verification of documentary content. This project demonstrates enterprise-grade RAG architectures, LangGraph workflows, vector databases, and evaluation techniques.
+A specialized AI framework for the automatic search, validation, and verification of documentary content. This project demonstrates enterprise-grade RAG architectures, LangGraph workflows, and vector databases.
 
 Udemy Certificate: https://www.udemy.com/certificate/UC-b9fe4c49-5e6f-45a2-ac35-5f4f3751d9f5/
 
@@ -19,7 +19,6 @@ In corporate environments (ISO 27001, internal procedures), manually verifying d
 -   **Vector Database**: Support for Chroma (local), FAISS (local), and Pinecone (cloud).
 -   **Hallucination Mitigation**: Built-in `verify()` loop that scores answers based on context evidence.
 -   **Compliance Checking**: dedicated `validate()` mode to check "Yes/No" presence of specific clauses.
--   **Evaluation**: Integration with `ragas` for performance metrics.
 -   **API & CLI**: Full Flask REST API and Command Line Interface.
 
 ## Technology Stack
@@ -28,7 +27,6 @@ In corporate environments (ISO 27001, internal procedures), manually verifying d
 -   **Models**: Llama 3 (Recommended), OpenAI GPT-4o, Mistral
 -   **Vector Stores**: ChromaDB, FAISS, Pinecone
 -   **API**: Flask
--   **Evaluation**: Ragas, TruthfulQA
 
 ## Prerequisites: Running Llama 3 Locally
 
@@ -88,20 +86,12 @@ Start the REST API:
 python docval.py serve
 ```
 
-## Evaluation
-
-Run Ragas evaluation metrics:
-```bash
-python eval.py ragas test_questions.json
-```
-
 ## Project Structure
 
 ```
 ├── data/               # Raw documents (PDF, DOCX, etc.)
 ├── vector/             # Persistent vector database storage
 ├── docval.py           # Main application logic (CLI + API)
-├── eval.py             # Evaluation scripts (Ragas, Hallucination Index)
 ├── RAG-PROJECT.ipynb   # Prototyping and experiments notebook
 └── requirements.txt    # Dependencies
 ```
