@@ -86,11 +86,14 @@ Start the REST API:
 python docval.py serve
 ```
 
+## Evaluation
+
+(Optional) If you wish to implement evaluation metrics, you can integrate frameworks like Ragas or TruthfulQA.
+
 ## Project Structure
 
 ```
 ├── data/               # Raw documents (PDF, DOCX, etc.)
-├── vector/             # Persistent vector database storage
 ├── docval.py           # Main application logic (CLI + API)
 ├── RAG-PROJECT.ipynb   # Prototyping and experiments notebook
 └── requirements.txt    # Dependencies
