@@ -1,7 +1,8 @@
 # RAG Document Validator Framework
 
-A specialized AI framework for the automatic search, validation, and verification of documentary content. This project was developed as a prototype for the thesis: *"Development of an AI Framework for the Automatic Search and Validation of Documentary Content"*.
-
+A specialized AI framework for the automatic search, validation, and verification of documentary content. This project was developed while completing the Udemy course “RAG for Professionals with LangGraph, Python and OpenAI”,
+where I studied enterprise-grade RAG architectures, LangGraph workflows, vector databases, and evaluation techniques.
+Certificate: https://www.udemy.com/certificate/UC-b9fe4c49-5e6f-45a2-ac35-5f4f3751d9f5/
 ## Overview
 
 In corporate environments (ISO 27001, internal procedures), manually verifying documents is error-prone and time-consuming. This framework leverages **Retrieval-Augmented Generation (RAG)** to:
