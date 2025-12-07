@@ -1,0 +1,28 @@
+python-dotenv
+flask
+streamlit
+
+# LangChain ecosystem
+langchain
+langchain-core
+langchain-openai
+langchain-chroma
+langchain-community
+langchain-mistralai
+langchain-pinecone
+langchain-ollama  
+
+# Vector stores
+chromadb
+faiss-cpu
+pinecone-client
+
+# Evaluation + datasets
+ragas
+datasets
+evaluate
+
+# LlamaIndex (optional)
+llama-index
+llama-index-vector-stores-chroma
+llama-index-embeddings-openai
